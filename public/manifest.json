@@ -1,0 +1,57 @@
+{
+  "name": "Xonix Tech - Futuristic Tools for the Modern World",
+  "short_name": "Xonix Tech",
+  "description": "Discover cutting-edge web tools and utilities at Xonix Tech. Excel file opener, data processing, and modern productivity tools for professionals and businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait-primary",
+  "categories": ["productivity", "business", "utilities"],
+  "lang": "en-US",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Xonix Tech Desktop View"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "375x812",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Xonix Tech Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Excel File Opener",
+      "short_name": "Excel Opener",
+      "description": "Open and view Excel files in your browser",
+      "url": "/xls-file-opener",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}

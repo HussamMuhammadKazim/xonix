@@ -75,6 +75,9 @@ export const metadata: Metadata = {
     yandex: "your-yandex-verification-code",
     yahoo: "your-yahoo-verification-code",
   },
+  other: {
+    "google-adsense-account": "ca-pub-3465404764288686",
+  },
   alternates: {
     canonical: "https://xonixtech.com",
   },

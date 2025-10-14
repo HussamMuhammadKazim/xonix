@@ -5,8 +5,7 @@ export const runtime = "nodejs";
 const ALLOWED_ORIGINS = [
   "https://xonixtech.com",
   "https://www.xonixtech.com",
-  // Add your Vercel preview domain if needed, e.g.:
-  // "https://your-project.vercel.app",
+  `https://${process.env.REPLIT_DEV_DOMAIN}`,
 ];
 
 type RateEntry = { count: number; windowStartMs: number };

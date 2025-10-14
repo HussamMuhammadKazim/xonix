@@ -194,7 +194,7 @@ export default function XlsToJsonConverter() {
                       </li>
                       <li className="flex items-start space-x-3">
                         <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">3</span>
-                        <span>Click "Download JSON File" to save your converted data</span>
+                        <span>Click &quot;Download JSON File&quot; to save your converted data</span>
                       </li>
                     </ol>
                   </div>
@@ -218,8 +218,8 @@ export default function XlsToJsonConverter() {
                   <h3 className="text-2xl font-bold mb-4">Perfect for Developers and Data Professionals</h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     Our <strong>Excel to JSON converter</strong> is designed for developers, data scientists, and professionals who need reliable data conversion for APIs, 
-                    databases, and web applications. Whether you're building <strong>web applications</strong>, <strong>mobile apps</strong>, or working with <strong>data analysis</strong>, 
-                    this tool provides clean, structured JSON output that's ready for integration.
+                    databases, and web applications. Whether you&apos;re building <strong>web applications</strong>, <strong>mobile apps</strong>, or working with <strong>data analysis</strong>, 
+                    this tool provides clean, structured JSON output that&apos;s ready for integration.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="text-center">
@@ -273,7 +273,7 @@ export default function XlsToJsonConverter() {
                       <p className="text-muted-foreground text-sm">Absolutely! Files are processed locally in your browser and never uploaded to our servers, ensuring complete privacy.</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-2">What's the JSON structure output?</h4>
+                      <h4 className="font-semibold text-foreground mb-2">What&apos;s the JSON structure output?</h4>
                       <p className="text-muted-foreground text-sm">The output is a clean JSON array where each object represents a row from your Excel file, with column headers as keys.</p>
                     </div>
                   </div>

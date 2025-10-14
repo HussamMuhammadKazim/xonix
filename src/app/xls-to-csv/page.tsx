@@ -191,7 +191,7 @@ export default function XlsToCsvConverter() {
                       </li>
                       <li className="flex items-start space-x-3">
                         <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">3</span>
-                        <span>Click "Download CSV File" to save your converted data</span>
+                        <span>Click &quot;Download CSV File&quot; to save your converted data</span>
                       </li>
                     </ol>
                   </div>
@@ -215,7 +215,7 @@ export default function XlsToCsvConverter() {
                   <h3 className="text-2xl font-bold mb-4">Perfect for Business Professionals</h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     Our <strong>Excel to CSV converter</strong> is designed for professionals who need reliable data conversion without installing software. 
-                    Whether you're a <strong>data analyst</strong>, <strong>business manager</strong>, or <strong>researcher</strong>, this tool provides instant access to your data in CSV format 
+                    Whether you&apos;re a <strong>data analyst</strong>, <strong>business manager</strong>, or <strong>researcher</strong>, this tool provides instant access to your data in CSV format 
                     with professional-grade accuracy and security.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -270,7 +270,7 @@ export default function XlsToCsvConverter() {
                       <p className="text-muted-foreground text-sm">Absolutely! Files are processed locally in your browser and never uploaded to our servers, ensuring complete privacy.</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-foreground mb-2">What's the maximum file size supported?</h4>
+                      <h4 className="font-semibold text-foreground mb-2">What&apos;s the maximum file size supported?</h4>
                       <p className="text-muted-foreground text-sm">Our Excel to CSV converter can handle most standard Excel files. Very large files may take longer to process but are fully supported.</p>
                     </div>
                   </div>

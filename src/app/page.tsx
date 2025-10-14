@@ -1,111 +1,271 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Xonix Tech - Professional Web Tools | Excel File Opener & Data Converters",
+  description: "Professional web tools for modern businesses. Open Excel files (.xls, .xlsx) in your browser, convert to CSV/JSON formats. Free, secure, and works entirely in your browser. No software installation required.",
+  keywords: [
+    "excel file opener",
+    "xls viewer",
+    "xlsx viewer", 
+    "excel to csv converter",
+    "excel to json converter",
+    "online excel tools",
+    "free excel viewer",
+    "browser excel opener",
+    "data conversion tools",
+    "spreadsheet tools",
+    "professional web tools",
+    "xonix tech",
+    "excel online",
+    "xls online",
+    "csv converter",
+    "json converter",
+    "data export tools",
+    "business productivity tools",
+    "excel file processing",
+    "spreadsheet data tools"
+  ],
+  openGraph: {
+    title: "Xonix Tech - Professional Web Tools | Excel File Opener & Data Converters",
+    description: "Professional web tools for modern businesses. Open Excel files (.xls, .xlsx) in your browser, convert to CSV/JSON formats. Free, secure, and works entirely in your browser.",
+    type: "website",
+    url: "https://xonixtech.com",
+    siteName: "Xonix Tech",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Xonix Tech - Professional Web Tools for Excel Files and Data Conversion",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Xonix Tech - Professional Web Tools | Excel File Opener & Data Converters",
+    description: "Professional web tools for modern businesses. Open Excel files (.xls, .xlsx) in your browser, convert to CSV/JSON formats. Free, secure, and works entirely in your browser.",
+    images: ["/twitter-image.png"],
+    creator: "@xonixtech",
+  },
+  alternates: {
+    canonical: "https://xonixtech.com",
+  },
+};
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
-      </div>
+    <div className="min-h-screen">
+      {/* Header */}
+      <header className="header">
+        <div className="container">
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold text-foreground">
+              Xonix Tech
+            </h1>
+            <nav className="hidden md:block space-x-6">
+              <Link href="/about" className="text-primary hover:text-primary-hover">
+                About
+              </Link>
+              <Link href="/contact" className="text-primary hover:text-primary-hover">
+                Contact
+              </Link>
+              <Link href="/privacy-policy" className="text-primary hover:text-primary-hover">
+                Privacy
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </header>
 
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:50px_50px] opacity-20"></div>
-
-      <div className="relative z-10 container mx-auto px-6 py-12">
-        {/* Header */}
-        <header className="text-center mb-16">
-          <h1 className="text-6xl md:text-8xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse">
-            XONIX TECH
+      {/* Hero Section */}
+      <section className="py-12">
+        <div className="container text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Professional Web Tools
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 font-light tracking-wider">
-            FUTURISTIC TOOLS FOR THE MODERN WORLD
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-center" style={{textAlign: 'center'}}>
+            Reliable, efficient tools designed for modern businesses. 
+            Streamline your workflow with our professional-grade utilities.
           </p>
-          <div className="mt-8 w-32 h-1 bg-gradient-to-r from-cyan-400 to-purple-400 mx-auto rounded-full"></div>
-          
-          {/* SEO-optimized content */}
-          <section className="mt-12 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Professional Excel File Opener & Data Processing Tools
-            </h2>
-            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-              Transform your workflow with Xonix Tech&apos;s cutting-edge web-based tools. 
-              Our <strong>Excel file opener</strong> allows you to view, analyze, and export 
-              spreadsheet data directly in your browser. Perfect for <strong>business professionals</strong>, 
-              <strong>data analysts</strong>, and anyone who needs reliable <strong>data processing tools</strong>.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="bg-slate-800/30 backdrop-blur-sm border border-cyan-500/20 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-cyan-400 mb-3">Excel Online Viewer</h3>
-                <p className="text-gray-300 text-sm">
-                  Open and view .xls and .xlsx files without installing any software. 
-                  Our browser-based Excel viewer supports all major spreadsheet formats.
-                </p>
-              </div>
-              
-              <div className="bg-slate-800/30 backdrop-blur-sm border border-purple-500/20 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-purple-400 mb-3">Data Export Tools</h3>
-                <p className="text-gray-300 text-sm">
-                  Export your data to CSV or JSON formats with one click. 
-                  Perfect for data analysis, reporting, and integration with other tools.
-                </p>
-              </div>
-              
-              <div className="bg-slate-800/30 backdrop-blur-sm border border-pink-500/20 rounded-lg p-6">
-                <h3 className="text-xl font-bold text-pink-400 mb-3">Modern Interface</h3>
-                <p className="text-gray-300 text-sm">
-                  Experience a futuristic, responsive design that works seamlessly 
-                  across all devices. Built for productivity and user experience.
-                </p>
-              </div>
-            </div>
-          </section>
-        </header>
+          <Link href="/xls-file-opener" className="btn">
+            Get Started
+          </Link>
+        </div>
+      </section>
 
-        {/* Tools Grid */}
-        <main className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* XLS File Opener Tool */}
-            <Link href="/xls-file-opener" className="group">
-              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-cyan-500/30 rounded-xl p-8 h-64 hover:border-cyan-400/60 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/25">
-                {/* Glowing border effect */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-cyan-500/20 via-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
-                
-                {/* Tool icon */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
-                  <div className="w-16 h-16 mb-4 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center group-hover:animate-pulse">
-                    <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+      {/* Features Section */}
+      <section className="py-8 bg-secondary">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4">
+              Why Choose Our Tools?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center" style={{textAlign: 'center'}}>
+              Built with professionalism and reliability in mind, our tools help you work more efficiently.
+            </p>
+          </div>
+          
+          <div className="grid grid-3">
+            <div className="card text-center">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                Excel File Opener
+              </h3>
+              <p className="text-muted-foreground">
+                Open and view .xls and .xlsx files directly in your browser. 
+                No software installation required.
+              </p>
+            </div>
+            
+            <div className="card text-center">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                Data Export
+              </h3>
+              <p className="text-muted-foreground">
+                Export your data to CSV or JSON formats with one click. 
+                Perfect for data analysis and reporting.
+              </p>
+            </div>
+            
+            <div className="card text-center">
+              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-3">
+                Fast & Reliable
+              </h3>
+              <p className="text-muted-foreground">
+                Optimized for speed and reliability. Built with modern web technologies 
+                for the best user experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tools Section */}
+      <section className="py-12">
+        <div className="container">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4">
+              Our Tools
+            </h2>
+            <p className="text-lg text-muted-foreground text-center" style={{textAlign: 'center'}}>
+              Professional tools designed to make your work easier and more efficient.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Link href="/xls-file-opener" className="block">
+              <div className="card hover:shadow-lg transition-all duration-200 h-full">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-xl font-semibold mb-2">
                     XLS File Opener
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
-                    Open and view Excel files in your browser with advanced formatting support
+                  <p className="text-muted-foreground mb-3">
+                    Open and view Excel files in your browser with advanced formatting support.
                   </p>
-                  
-                  {/* Hover effect indicator */}
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <div className="flex items-center justify-center text-primary font-medium">
+                    Try it now
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/xls-to-csv" className="block">
+              <div className="card hover:shadow-lg transition-all duration-200 h-full">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    XLS to CSV Converter
+                  </h3>
+                  <p className="text-muted-foreground mb-3">
+                    Convert Excel files to CSV format instantly. Perfect for data analysis and import.
+                  </p>
+                  <div className="flex items-center justify-center text-primary font-medium">
+                    Convert now
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/xls-to-json" className="block">
+              <div className="card hover:shadow-lg transition-all duration-200 h-full">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    XLS to JSON Converter
+                  </h3>
+                  <p className="text-muted-foreground mb-3">
+                    Convert Excel files to JSON format. Perfect for APIs, databases, and web applications.
+                  </p>
+                  <div className="flex items-center justify-center text-primary font-medium">
+                    Convert now
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>
                 </div>
               </div>
             </Link>
           </div>
-        </main>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <footer className="text-center mt-20 text-gray-400">
-          <p className="text-sm">
-            © 2024 Xonix Tech. Building the future, one tool at a time.
+      {/* CTA Section */}
+      <section className="py-12 bg-secondary">
+        <div className="container text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Ready to Get Started?
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto text-center" style={{textAlign: 'center'}}>
+            Join thousands of professionals who trust our tools for their daily workflow.
           </p>
-        </footer>
-      </div>
+          <Link href="/xls-file-opener" className="btn">
+            Open Excel Files
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <p className="text-sm">
+            © 2024 Xonix Tech. Professional tools for modern businesses.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

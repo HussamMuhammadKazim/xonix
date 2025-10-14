@@ -1,27 +1,30 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const sourceCodePro = Source_Code_Pro({
+  variable: "--font-source-code-pro",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Xonix Tech - Futuristic Tools for the Modern World",
+    default: "Xonix Tech - Professional Web Tools | Excel File Opener & Data Converters",
     template: "%s | Xonix Tech"
   },
-  description: "Discover cutting-edge web tools and utilities at Xonix Tech. Excel file opener, data processing, and modern productivity tools for professionals and businesses.",
+  description: "Professional web tools and utilities for modern businesses. Open Excel files (.xls, .xlsx) in your browser, convert to CSV/JSON formats. Free, secure, and works entirely in your browser. No software installation required.",
   keywords: [
     "xonix tech",
     "excel file opener",
     "xls viewer",
+    "xlsx viewer",
+    "excel to csv converter",
+    "excel to json converter",
     "data processing tools",
     "productivity tools",
     "web utilities",
@@ -31,7 +34,14 @@ export const metadata: Metadata = {
     "CSV export",
     "JSON export",
     "business tools",
-    "modern web tools"
+    "modern web tools",
+    "free excel tools",
+    "browser excel opener",
+    "online spreadsheet tools",
+    "data conversion tools",
+    "secure file processing",
+    "local file processing",
+    "professional web tools"
   ],
   authors: [{ name: "Xonix Tech" }],
   creator: "Xonix Tech",
@@ -52,21 +62,21 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://xonixtech.com",
     siteName: "Xonix Tech",
-    title: "Xonix Tech - Futuristic Tools for the Modern World",
-    description: "Discover cutting-edge web tools and utilities at Xonix Tech. Excel file opener, data processing, and modern productivity tools for professionals and businesses.",
+    title: "Xonix Tech - Professional Web Tools | Excel File Opener & Data Converters",
+    description: "Professional web tools and utilities for modern businesses. Open Excel files (.xls, .xlsx) in your browser, convert to CSV/JSON formats. Free, secure, and works entirely in your browser. No software installation required.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Xonix Tech - Futuristic Tools for the Modern World",
+        alt: "Xonix Tech - Professional Web Tools for Excel Files and Data Conversion",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Xonix Tech - Futuristic Tools for the Modern World",
-    description: "Discover cutting-edge web tools and utilities at Xonix Tech. Excel file opener, data processing, and modern productivity tools.",
+    title: "Xonix Tech - Professional Web Tools | Excel File Opener & Data Converters",
+    description: "Professional web tools and utilities for modern businesses. Open Excel files (.xls, .xlsx) in your browser, convert to CSV/JSON formats. Free, secure, and works entirely in your browser. No software installation required.",
     images: ["/twitter-image.png"],
     creator: "@xonixtech",
   },
@@ -93,7 +103,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Xonix Tech",
-    "description": "Discover cutting-edge web tools and utilities at Xonix Tech. Excel file opener, data processing, and modern productivity tools for professionals and businesses.",
+    "description": "Professional web tools and utilities for modern businesses. Open Excel files (.xls, .xlsx) in your browser, convert to CSV/JSON formats. Free, secure, and works entirely in your browser. No software installation required.",
     "url": "https://xonixtech.com",
     "potentialAction": {
       "@type": "SearchAction",
@@ -107,8 +117,22 @@ export default function RootLayout({
       "logo": {
         "@type": "ImageObject",
         "url": "https://xonixtech.com/logo.png"
-      }
-    }
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Hussam Muhammad Kazim",
+        "jobTitle": "AI Automation Engineer"
+      },
+      "description": "Professional web tools and utilities for modern businesses specializing in Excel file processing and data conversion tools."
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free Excel file opener and data conversion tools"
+    },
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web Browser"
   };
 
   return (
@@ -132,7 +156,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${sourceCodePro.variable} antialiased`}
       >
         {children}
       </body>

@@ -9,7 +9,6 @@ export default function XlsToCsvClient() {
   const [headers, setHeaders] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [converted, setConverted] = useState(false);
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const uploadedFile = event.target.files?.[0];
@@ -17,7 +16,6 @@ export default function XlsToCsvClient() {
 
     setLoading(true);
     setError(null);
-    setConverted(false);
 
     try {
       if (!uploadedFile.name.toLowerCase().endsWith(".xls") && !uploadedFile.name.toLowerCase().endsWith(".xlsx")) {
@@ -49,7 +47,6 @@ export default function XlsToCsvClient() {
       });
 
       setData(rows);
-      setConverted(true);
     } catch (err) {
       setError(err instanceof Error ? err.message : "An error occurred while processing the file");
     } finally {
@@ -76,7 +73,6 @@ export default function XlsToCsvClient() {
     setData([]);
     setHeaders([]);
     setError(null);
-    setConverted(false);
   };
 
   return (

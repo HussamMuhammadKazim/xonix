@@ -102,8 +102,9 @@ Preferred communication style: Simple, everyday language.
 **No Database**: Application is entirely stateless and client-side. No persistent data storage is required or implemented. All user data processing happens in-browser and is never transmitted to servers.
 
 **API Integrations**:
-- Internal transliteration API for Arabic name generation using Google Gemini
+- Internal transliteration API for Arabic name generation using Google Gemini 2.0 Flash
   - Requires GOOGLE_API_KEY environment variable (server-side only)
+  - Uses gemini-2.0-flash-exp model via Google Generative Language API
 - No external API dependencies for core Excel file processing functionality
 - Self-contained file processing
 
@@ -116,3 +117,5 @@ Preferred communication style: Simple, everyday language.
 - **Deployment**: Configured autoscale deployment target with npm build/start scripts
 - **Environment Variables**: GOOGLE_API_KEY configured in Replit Secrets for transliteration API
 - **Removed Turbopack**: Disabled Turbopack flags for better Replit compatibility
+- **Google Gemini Model Update**: Changed from gemini-1.5-flash to gemini-2.0-flash-exp (v1beta API compatibility)
+- **Enhanced Error Logging**: Added detailed error logging for Google API failures to aid debugging

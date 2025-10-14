@@ -1,9 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
-import * as XLSX from 'xlsx';
 import type { Metadata } from "next";
+import XlsToCsvClient from "./XlsToCsvClient";
 
 export const metadata: Metadata = {
   title: "Free XLS to CSV Converter Online - Convert Excel Files to CSV | Xonix Tech",
@@ -59,12 +56,6 @@ export const metadata: Metadata = {
 };
 
 export default function XlsToCsvConverter() {
-  const [file, setFile] = useState<File | null>(null);
-  const [data, setData] = useState<Array<Record<string, string | number>>>([]);
-  const [headers, setHeaders] = useState<string[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [converted, setConverted] = useState(false);
 
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const uploadedFile = event.target.files?.[0];
@@ -193,72 +184,7 @@ export default function XlsToCsvConverter() {
 
         {/* Converter Section */}
         <div className="max-w-4xl mx-auto mb-12">
-          <div className="card text-center">
-            {!file ? (
-              <div className="space-y-6">
-                <div className="w-20 h-20 mx-auto bg-primary rounded-lg flex items-center justify-center">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
-                  </svg>
-                </div>
-                
-                <div>
-                  <h3 className="text-2xl font-semibold mb-2">Upload Excel File</h3>
-                  <p className="text-muted-foreground mb-6">Select your .xls or .xlsx file to convert to CSV format</p>
-                </div>
-
-                <label className="cursor-pointer inline-block">
-                  <input
-                    type="file"
-                    accept=".xls,.xlsx"
-                    onChange={handleFileUpload}
-                    className="hidden"
-                    disabled={loading}
-                  />
-                  <div className="btn">
-                    {loading ? "Converting..." : "Choose Excel File"}
-                  </div>
-                </label>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                <div className="w-20 h-20 mx-auto bg-green-500 rounded-lg flex items-center justify-center">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                
-                <div>
-                  <h3 className="text-2xl font-semibold mb-2">File Ready for Conversion!</h3>
-                  <p className="text-muted-foreground mb-2">{file.name}</p>
-                  <p className="text-sm text-muted-foreground mb-6">
-                    Size: {(file.size / 1024).toFixed(1)} KB • {data.length} rows • {headers.length} columns
-                  </p>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button
-                    onClick={downloadCSV}
-                    className="btn"
-                  >
-                    Download CSV File
-                  </button>
-                  <button
-                    onClick={clearFile}
-                    className="btn-secondary"
-                  >
-                    Convert Another File
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {error && (
-              <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-                <p className="text-red-600">{error}</p>
-              </div>
-            )}
-          </div>
+          <XlsToCsvClient />
         </div>
 
         {/* Features Section */}

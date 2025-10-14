@@ -93,8 +93,10 @@ export async function POST(req: NextRequest) {
 
   const apiKey = process.env.GOOGLE_API_KEY;
   if (!apiKey) {
+    console.error("GOOGLE_API_KEY is not set in environment variables");
     return jsonResponse({ error: "Server not configured" }, { status: 500, headers });
   }
+  console.log("GOOGLE_API_KEY is configured");
 
   const prompt = `Transliterate the following English personal name(s) into Arabic script.\nReturn strict JSON only, no extra text, with keys: arabic (string), pronunciation (string).\nFollow Arabic phonetics (kh=خ, gh=غ, sh=ش, th(thing)=ث, th(this)=ذ, j=ج, ch=تش, q=ق).\nKeep spacing between first/middle/last names.\nInput: "${text}"`;
 
@@ -123,7 +125,19 @@ export async function POST(req: NextRequest) {
   }
 
   if (!upstream.ok) {
-    return jsonResponse({ error: "Transliteration failed" }, { status: 502, headers });
+    let errorDetails = "Unknown error";
+    try {
+      const errorData = await upstream.json();
+      errorDetails = JSON.stringify(errorData);
+      console.error("Google API Error:", errorDetails);
+    } catch {
+      errorDetails = await upstream.text().catch(() => "Could not read error");
+      console.error("Google API Error (text):", errorDetails);
+    }
+    return jsonResponse({ 
+      error: "Transliteration failed", 
+      details: process.env.NODE_ENV === "development" ? errorDetails : undefined 
+    }, { status: 502, headers });
   }
 
   type GeminiPart = { text?: string };

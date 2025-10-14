@@ -1,0 +1,54 @@
+11:34:40.701 Running build in Washington, D.C., USA (East) – iad1
+11:34:40.702 Build machine configuration: 2 cores, 8 GB
+11:34:40.723 Cloning github.com/HussamMuhammadKazim/xonix (Branch: main, Commit: de3a344)
+11:34:41.494 Cloning completed: 771.000ms
+11:34:41.889 Restored build cache from previous deployment (83Y3ZT1dSxi6r48rcbn6uj9KMKiH)
+11:34:42.344 Running "vercel build"
+11:34:42.736 Vercel CLI 48.2.9
+11:34:43.057 Installing dependencies...
+11:34:44.180 
+11:34:44.181 up to date in 906ms
+11:34:44.182 
+11:34:44.182 139 packages are looking for funding
+11:34:44.182   run `npm fund` for details
+11:34:44.213 Detected Next.js version: 15.5.4
+11:34:44.217 Running "npm run build"
+11:34:44.326 
+11:34:44.327 > xonix@0.1.0 build
+11:34:44.327 > next build --turbopack
+11:34:44.327 
+11:34:45.419    ▲ Next.js 15.5.4 (Turbopack)
+11:34:45.419    - Experiments (use with caution):
+11:34:45.419      ✓ scrollRestoration
+11:34:45.419 
+11:34:45.503    Creating an optimized production build ...
+11:34:55.836  ✓ Finished writing to disk in 20ms
+11:34:55.864  ✓ Compiled successfully in 9.6s
+11:34:55.868    Linting and checking validity of types ...
+11:35:00.860 
+11:35:00.860 Failed to compile.
+11:35:00.860 
+11:35:00.862 ./src/app/layout.tsx
+11:35:00.862 145:9  Warning: Prefer `next/script` component when using the inline script for Google Analytics. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
+11:35:00.862 
+11:35:00.862 ./src/app/xls-to-csv/XlsToCsvClient.tsx
+11:35:00.862 12:10  Warning: 'converted' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+11:35:00.862 
+11:35:00.863 ./src/app/xls-to-csv/page.tsx
+11:35:00.863 194:37  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+11:35:00.863 194:55  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+11:35:00.863 218:32  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+11:35:00.863 273:78  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+11:35:00.863 
+11:35:00.863 ./src/app/xls-to-json/XlsToJsonClient.tsx
+11:35:00.863 12:10  Warning: 'converted' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+11:35:00.863 
+11:35:00.863 ./src/app/xls-to-json/page.tsx
+11:35:00.864 197:37  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+11:35:00.864 197:56  Error: `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`.  react/no-unescaped-entities
+11:35:00.864 221:65  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+11:35:00.864 222:74  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+11:35:00.864 276:78  Error: `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`.  react/no-unescaped-entities
+11:35:00.864 
+11:35:00.864 info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+11:35:00.905 Error: Command "npm run build" exited with 1

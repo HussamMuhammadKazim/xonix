@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000, // 1 year
   },
   
+  // Allow Replit dev domain for hot reload
+  allowedDevOrigins: process.env.REPLIT_DEV_DOMAIN 
+    ? [process.env.REPLIT_DEV_DOMAIN] 
+    : [],
+  
   // Enable experimental features for better performance
   experimental: {
     scrollRestoration: true,

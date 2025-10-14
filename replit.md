@@ -102,13 +102,23 @@ Preferred communication style: Simple, everyday language.
 **No Database**: Application is entirely stateless and client-side. No persistent data storage is required or implemented. All user data processing happens in-browser and is never transmitted to servers.
 
 **API Integrations**:
-- Internal transliteration API for Arabic name generation using Google Gemini 2.0 Flash
-  - Requires GOOGLE_API_KEY environment variable (server-side only)
-  - Uses gemini-2.0-flash-exp model via Google Generative Language API
+- Internal transliteration API for Arabic name generation using OpenAI GPT-4o-mini
+  - Requires OPENAI_API_KEY environment variable (server-side only)
+  - Uses OpenAI Chat Completions API with JSON response format
+  - Provides accurate Arabic script transliteration and pronunciation
 - No external API dependencies for core Excel file processing functionality
 - Self-contained file processing
 
 ## Recent Changes
+
+### October 14, 2025 - OpenAI Integration for Arabic Name Generator
+- **API Migration**: Migrated Arabic name transliteration from Google Gemini to OpenAI GPT-4o-mini
+  - Improved accuracy and reliability for Arabic name generation
+  - Replaced GOOGLE_API_KEY with OPENAI_API_KEY in environment variables
+  - Added OpenAI npm package (openai) to dependencies
+  - Implemented robust error handling with defensive checks
+  - Fixed issue where empty Arabic names were being generated
+  - Uses JSON response format for structured outputs
 
 ### October 14, 2024 - Vercel to Replit Migration
 - **Port Configuration**: Updated dev and start scripts to bind to port 5000 on 0.0.0.0 for Replit compatibility

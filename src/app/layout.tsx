@@ -136,8 +136,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <head>
+        {/* Force dark mode */}
+        <meta name="color-scheme" content="dark" />
+        <meta name="theme-color" content="#1a1a1a" />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFFBB5W9WM"></script>
         <script

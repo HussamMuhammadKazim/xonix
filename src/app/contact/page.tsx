@@ -68,6 +68,9 @@ export default function Contact() {
               <Link href="/privacy-policy" className="text-primary hover:text-primary-hover">
                 Privacy
               </Link>
+              <Link href="/terms-of-service" className="text-primary hover:text-primary-hover">
+                Terms
+              </Link>
             </nav>
           </div>
         </div>

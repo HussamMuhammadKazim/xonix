@@ -73,6 +73,9 @@ export default function Home() {
               <Link href="/privacy-policy" className="text-primary hover:text-primary-hover">
                 Privacy
               </Link>
+              <Link href="/terms-of-service" className="text-primary hover:text-primary-hover">
+                Terms
+              </Link>
             </nav>
           </div>
         </div>
@@ -167,7 +170,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <Link href="/xls-file-opener" className="block">
               <div className="card hover:shadow-lg transition-all duration-200 h-full">
                 <div className="text-center">
@@ -232,6 +235,30 @@ export default function Home() {
                   </p>
                   <div className="flex items-center justify-center text-primary font-medium">
                     Convert now
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/name-arabic-generator" className="block">
+              <div className="card hover:shadow-lg transition-all duration-200 h-full">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">
+                    Name Arabic Generator
+                  </h3>
+                  <p className="text-muted-foreground mb-3">
+                    Generate Arabic names from English with our free name Arabic generator tool.
+                  </p>
+                  <div className="flex items-center justify-center text-primary font-medium">
+                    Generate now
                     <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>

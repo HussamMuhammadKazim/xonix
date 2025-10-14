@@ -17,8 +17,7 @@ const ipToRateEntry: Map<string, RateEntry> = new Map();
 function getClientIp(req: NextRequest): string {
   const xff = req.headers.get("x-forwarded-for");
   if (xff) return xff.split(",")[0].trim();
-  // @ts-ignore - NextRequest may provide ip in some runtimes
-  return req.ip ?? "unknown";
+  return "unknown";
 }
 
 function corsHeaders(req: NextRequest): Headers {
@@ -78,14 +77,14 @@ export async function POST(req: NextRequest) {
     return jsonResponse({ error: "Rate limit exceeded" }, { status: 429, headers });
   }
 
-  let payload: unknown;
+  let payload: { text?: unknown };
   try {
     payload = await req.json();
   } catch {
     return jsonResponse({ error: "Invalid JSON" }, { status: 400, headers });
   }
 
-  const text = typeof (payload as any)?.text === "string" ? (payload as any).text.trim() : "";
+  const text = typeof payload.text === "string" ? payload.text.trim() : "";
   if (!text) {
     return jsonResponse({ error: "Missing 'text' string" }, { status: 400, headers });
   }
@@ -128,9 +127,14 @@ export async function POST(req: NextRequest) {
     return jsonResponse({ error: "Transliteration failed" }, { status: 502, headers });
   }
 
-  let data: any = null;
+  type GeminiPart = { text?: string };
+  type GeminiContent = { parts?: GeminiPart[] };
+  type GeminiCandidate = { content?: GeminiContent };
+  type GeminiResponse = { candidates?: GeminiCandidate[] };
+
+  let data: GeminiResponse | null = null;
   try {
-    data = await upstream.json();
+    data = (await upstream.json()) as GeminiResponse;
   } catch {
     return jsonResponse({ error: "Invalid upstream response" }, { status: 502, headers });
   }

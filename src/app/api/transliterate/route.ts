@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import OpenAI from "openai";
 
 export const runtime = "nodejs";
 
@@ -91,80 +92,72 @@ export async function POST(req: NextRequest) {
     return jsonResponse({ error: "Text too long (max 200 chars)" }, { status: 400, headers });
   }
 
-  const apiKey = process.env.GOOGLE_API_KEY;
+  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
-    console.error("GOOGLE_API_KEY is not set in environment variables");
+    console.error("OPENAI_API_KEY is not set in environment variables");
     return jsonResponse({ error: "Server not configured" }, { status: 500, headers });
   }
-  console.log("GOOGLE_API_KEY is configured");
 
-  const prompt = `Transliterate the following English personal name(s) into Arabic script.\nReturn strict JSON only, no extra text, with keys: arabic (string), pronunciation (string).\nFollow Arabic phonetics (kh=خ, gh=غ, sh=ش, th(thing)=ث, th(this)=ذ, j=ج, ch=تش, q=ق).\nKeep spacing between first/middle/last names.\nInput: "${text}"`;
+  const openai = new OpenAI({ apiKey });
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 8000);
+  const prompt = `Transliterate the following English personal name(s) into Arabic script.
+Follow Arabic phonetics accurately (kh=خ, gh=غ, sh=ش, th(thing)=ث, th(this)=ذ, j=ج, ch=تش, q=ق).
+Keep spacing between first/middle/last names.
+Provide the Arabic script and romanized pronunciation.
+Input: "${text}"
 
-  let upstream: Response;
+Respond with JSON in this format: { "arabic": "string", "pronunciation": "string" }`;
+
   try {
-    upstream = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=" + apiKey,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { temperature: 0.1, responseMimeType: "application/json" },
-        }),
-        signal: controller.signal,
-      }
-    );
-  } catch {
-    clearTimeout(timeoutId);
-    return jsonResponse({ error: "Upstream unavailable" }, { status: 502, headers });
-  } finally {
-    clearTimeout(timeoutId);
-  }
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content: "You are an expert in Arabic transliteration. You accurately convert English names to Arabic script following proper Arabic phonetics and naming conventions."
+        },
+        {
+          role: "user",
+          content: prompt
+        }
+      ],
+      response_format: { type: "json_object" },
+      temperature: 0.3,
+      max_tokens: 500,
+    });
 
-  if (!upstream.ok) {
-    let errorDetails = "Unknown error";
-    try {
-      const errorData = await upstream.json();
-      errorDetails = JSON.stringify(errorData);
-      console.error("Google API Error:", errorDetails);
-    } catch {
-      errorDetails = await upstream.text().catch(() => "Could not read error");
-      console.error("Google API Error (text):", errorDetails);
+    if (!response.choices || response.choices.length === 0) {
+      console.error("OpenAI returned empty choices array");
+      return jsonResponse({ error: "Invalid AI response" }, { status: 502, headers });
     }
-    return jsonResponse({ 
-      error: "Transliteration failed", 
-      details: process.env.NODE_ENV === "development" ? errorDetails : undefined 
-    }, { status: 502, headers });
+
+    const content = response.choices[0].message.content || "{}";
+    let parsed: { arabic?: string; pronunciation?: string } = {};
+    
+    try {
+      parsed = JSON.parse(content);
+    } catch (parseError) {
+      console.error("Failed to parse OpenAI response:", content);
+      return jsonResponse({ error: "Invalid AI response" }, { status: 502, headers });
+    }
+
+    return jsonResponse(
+      {
+        arabic: parsed.arabic ?? "",
+        pronunciation: parsed.pronunciation ?? "",
+      },
+      { status: 200, headers }
+    );
+  } catch (error) {
+    console.error("OpenAI API Error:", error);
+    return jsonResponse(
+      { 
+        error: "Transliteration failed",
+        details: process.env.NODE_ENV === "development" ? (error as Error).message : undefined
+      },
+      { status: 502, headers }
+    );
   }
-
-  type GeminiPart = { text?: string };
-  type GeminiContent = { parts?: GeminiPart[] };
-  type GeminiCandidate = { content?: GeminiContent };
-  type GeminiResponse = { candidates?: GeminiCandidate[] };
-
-  let data: GeminiResponse | null = null;
-  try {
-    data = (await upstream.json()) as GeminiResponse;
-  } catch {
-    return jsonResponse({ error: "Invalid upstream response" }, { status: 502, headers });
-  }
-
-  const raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? "{}";
-  let parsed: { arabic?: string; pronunciation?: string } = {};
-  try {
-    parsed = JSON.parse(raw);
-  } catch {}
-
-  return jsonResponse(
-    {
-      arabic: parsed.arabic ?? "",
-      pronunciation: parsed.pronunciation ?? "",
-    },
-    { status: 200, headers }
-  );
 }
 
 

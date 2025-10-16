@@ -1,0 +1,39 @@
+09:50:02.692 Running build in Washington, D.C., USA (East) – iad1
+09:50:02.692 Build machine configuration: 2 cores, 8 GB
+09:50:02.710 Cloning github.com/HussamMuhammadKazim/xonix (Branch: main, Commit: 0089ae4)
+09:50:03.006 Cloning completed: 296.000ms
+09:50:03.921 Restored build cache from previous deployment (69tPi6FEA4kCrbrWrHGikqAsBVq6)
+09:50:04.339 Running "vercel build"
+09:50:04.774 Vercel CLI 48.2.9
+09:50:05.145 Installing dependencies...
+09:50:06.520 
+09:50:06.522 added 1 package in 1s
+09:50:06.522 
+09:50:06.523 139 packages are looking for funding
+09:50:06.523   run `npm fund` for details
+09:50:06.555 Detected Next.js version: 15.5.4
+09:50:06.559 Running "npm run build"
+09:50:06.666 
+09:50:06.667 > xonix@0.1.0 build
+09:50:06.667 > next build
+09:50:06.667 
+09:50:07.746    ▲ Next.js 15.5.4
+09:50:07.746    - Experiments (use with caution):
+09:50:07.746      ✓ scrollRestoration
+09:50:07.746 
+09:50:07.823    Creating an optimized production build ...
+09:50:15.432  ✓ Compiled successfully in 5.0s
+09:50:15.437    Linting and checking validity of types ...
+09:50:20.715 
+09:50:20.718 Failed to compile.
+09:50:20.718 
+09:50:20.718 ./src/app/api/transliterate/route.ts
+09:50:20.718 139:14  Warning: 'parseError' is defined but never used.  @typescript-eslint/no-unused-vars
+09:50:20.718 
+09:50:20.718 ./src/app/layout.tsx
+09:50:20.718 143:9  Error: Synchronous scripts should not be used. See: https://nextjs.org/docs/messages/no-sync-scripts  @next/next/no-sync-scripts
+09:50:20.718 144:9  Error: Synchronous scripts should not be used. See: https://nextjs.org/docs/messages/no-sync-scripts  @next/next/no-sync-scripts
+09:50:20.719 161:9  Warning: Prefer `next/script` component when using the inline script for Google Analytics. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
+09:50:20.719 
+09:50:20.719 info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules
+09:50:20.757 Error: Command "npm run build" exited with 1

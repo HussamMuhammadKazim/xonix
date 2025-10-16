@@ -136,7 +136,7 @@ Respond with JSON in this format: { "arabic": "string", "pronunciation": "string
     
     try {
       parsed = JSON.parse(content);
-    } catch (parseError) {
+    } catch {
       console.error("Failed to parse OpenAI response:", content);
       return jsonResponse({ error: "Invalid AI response" }, { status: 502, headers });
     }

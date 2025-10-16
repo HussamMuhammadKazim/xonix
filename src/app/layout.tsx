@@ -140,7 +140,9 @@ export default function RootLayout({
     <html lang="en" data-theme="dark">
       <head>
         {/* Ezoic Privacy Scripts - Must be loaded first */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
         
         {/* Ezoic Header Script */}
